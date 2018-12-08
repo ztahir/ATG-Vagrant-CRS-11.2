@@ -51,7 +51,7 @@ You will also need a way to connect to the database.  I recommend [Oracle SQL De
 
 ## Download required ATG server software
 
-### ATG 11.2
+### ATG 11.3
 
 These instructions download a previous release of Oracle ATG (11.2). At the time of this writing the latest release is 11.3.  The scripts are coded to assume that the Oracle ATG assets have 11.2 in the name, so you can't just download 11.3 and have it work here.  Sorry.
 
