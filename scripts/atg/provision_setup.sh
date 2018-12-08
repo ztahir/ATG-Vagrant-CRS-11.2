@@ -30,16 +30,19 @@ yum install -y unzip ant ant-nodeps ant-contrib libaio
 # set environment variables
 if  ! grep -qe "^export ENDECA_TOOLS_CONF=" "/home/vagrant/.bash_profile"; then
 	echo "export JAVA_HOME=/usr/java/jdk1.7.0_72" >> /home/vagrant/.bash_profile \
-	 && echo "export DYNAMO_HOME=/home/vagrant/ATG/ATG11.1/home" >> /home/vagrant/.bash_profile \
+	 && echo "export DYNAMO_HOME=/home/vagrant/ATG/ATG11.2/home" >> /home/vagrant/.bash_profile \
 	 && echo "export JBOSS_HOME=/home/vagrant/jboss" >> /home/vagrant/.bash_profile \
-	 && echo "export ATG_HOME=/home/vagrant/ATG/ATG11.1/home" >> /home/vagrant/.bash_profile \
-	 && echo "export ATG_DIR=/root/ATG/ATG11.1" >> /home/vagrant/.bash_profile \
+	 && echo "export ATG_HOME=/home/vagrant/ATG/ATG11.2/home" >> /home/vagrant/.bash_profile \
+	 && echo "export ATG_DIR=/root/ATG/ATG11.2" >> /home/vagrant/.bash_profile \
 	 && echo "export JAVA_VM=/usr/java/jdk1.7.0_72/bin/java" >> /home/vagrant/.bash_profile \
 	 && echo "export JAVA_ARGS=-Duser.timezone=UTC" >> /home/vagrant/.bash_profile \
 	 && echo "export JAVA_OPTS=-Duser.timezone=UTC" >> /home/vagrant/.bash_profile \
-	 && echo "export ENDECA_TOOLS_ROOT=/usr/local/endeca/ToolsAndFrameworks/11.1.0" >> /home/vagrant/.bash_profile \
-	 && echo "export ENDECA_TOOLS_CONF=/usr/local/endeca/ToolsAndFrameworks/11.1.0/server/workspace" >> /home/vagrant/.bash_profile \
-	 && echo "export PATH=/usr/java/jdk1.7.0_72/bin:$PATH" >> /home/vagrant/.bash_profile
+	 && echo "export ENDECA_TOOLS_ROOT=/usr/local/endeca/ToolsAndFrameworks/11.2.0" >> /home/vagrant/.bash_profile \
+	 && echo "export ENDECA_TOOLS_CONF=/usr/local/endeca/ToolsAndFrameworks/11.2.0/server/workspace" >> /home/vagrant/.bash_profile \
+	 && echo "export PATH=/usr/java/jdk1.7.0_72/bin:$PATH" >> /home/vagrant/.bash_profile \
+     && echo "LANG=en_US.utf-8" >> /etc/environment \
+	 && echo "LC_ALL=en_US.utf-8" >> /etc/environment
+
 fi
 
 # jdk

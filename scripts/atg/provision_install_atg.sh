@@ -11,14 +11,19 @@ exec sudo -u vagrant /bin/bash -l << eof
 	cp /vagrant/scripts/atg/module.xml /home/vagrant/jboss/modules/com/oracle/ojdbc7/main
 
 	# atg
-	echo "installing ATG Platform 11.1 ..."
-	/vagrant/software/OCPlatform11.1.bin -i silent -f /vagrant/scripts/atg/OCPlatform11.1.properties
-	echo "ATG Platform 11.1 installation complete"
+	echo "installing ATG Platform 11.2 ..."
+	/vagrant/software/OCPlatform11_2.bin -i silent -f /vagrant/scripts/atg/OCPlatform11.2.properties
+	echo "ATG Platform 11.2 installation complete"
 
 	# atg
-	echo "installing ATG CRS 11.1 ..."
-	/vagrant/software/OCReferenceStore11.1.bin -i silent
-	echo "ATG CRS 11.1 installation complete"
+	echo "installing ATG CRS 11.2 ..."
+	/vagrant/software/OCReferenceStore11.2_222RCN.bin -i silent -f /vagrant/scripts/atg/silent_crs.properties
+	echo "ATG CRS 11.2 installation complete"
+
+	# atg
+	echo "installing ATG CSA 11.2 ..."
+	/vagrant/software/OCReferenceStore11.2_222RCN.bin -i silent -f /vagrant/scripts/atg/silent_csa.properties
+	echo "ATG CSA 11.2 installation complete"
 
 	echo "installation done"
 
