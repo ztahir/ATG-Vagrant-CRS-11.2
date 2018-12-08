@@ -78,9 +78,9 @@ These instructions download a previous release of Oracle ATG (11.2). At the time
 
 ## Download required ATG server software
 
-### ATG 11.1
+### ATG 11.2
 
-These instructions download a previous release of Oracle ATG (11.1). At the time of this writing the latest release is 11.2.  The scripts are coded to assume that the Oracle ATG assets have 11.1 in the name, so you can't just download 11.2 and have it work here.  Sorry.
+These instructions download a previous release of Oracle ATG (11.2). At the time of this writing the latest release is 11.3.  The scripts are coded to assume that the Oracle ATG assets have 11.2 in the name, so you can't just download 11.3 and have it work here.  Sorry.
 
 - Go to [Oracle Edelivery](http://edelivery.oracle.com)
 - Sign in
@@ -90,7 +90,7 @@ These instructions download a previous release of Oracle ATG (11.1). At the time
   - Oracle Endeca Developer
 - Select the platform "Linux x86-64"
 - Click Continue
-- Click "select alternate release" and select 11.1.0.0.0
+- Click "select alternate release" and select 11.2.0.0.0
 - Click Continue
 - Accept the terms and conditions
 - You don't need to download everything.  Download the following files:
