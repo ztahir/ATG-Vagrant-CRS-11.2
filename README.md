@@ -4,7 +4,7 @@
 
 This document describes a quick and easy way to install and play with ATG CRS.  By following this guide, you'll be able to focus on learning about ATG CRS, without debugging common gotchas.
 
-If you get lost, you can consult the [ATG CRS Installation and Configuration Guide](http://docs.oracle.com/cd/E52191_01/CRS.11-1/ATGCRSInstall/html) for help.
+If you get lost, you can consult the [ATG CRS Installation and Configuration Guide](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/ATGCRSInstall.pdf) for help.
 
 ### Conventions
 
@@ -13,10 +13,9 @@ Throughout this document, the top-level directory that you checked out from git 
 ### Product versions used in this guide:
 
 - Oracle Linux Server release 6.5 (Operating System) - [All Licenses](https://oss.oracle.com/linux/legal/pkg-list.html)
-- Oracle Database (choose either 11g or 12c)
-  - Oracle Database 11.2.0.4.0 Enterprise Edition - [license](http://docs.oracle.com/cd/E11882_01/license.112/e47877/toc.htm)
+- Oracle Database 12c
   - Oracle Database 12.1.0.2.0 Enterprise Edition - [license](http://docs.oracle.com/database/121/DBLIC/toc.htm)
-- Oracle ATG Web Commerce 11.1 - [license](http://docs.oracle.com/cd/E52191_02/Platform.11-1/ATGLicenseGuide/html/index.html)
+- Oracle ATG Web Commerce 11.2 - 
 - JDK 1.7 - [Oracle BCL license](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
 - ojdbc7.jar - driver [OTN license](http://www.oracle.com/technetwork/licenses/distribution-license-152002.html)
 - Jboss EAP 6.1 - [LGPL license](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
@@ -34,155 +33,34 @@ This product stack is pretty heavy.  It's a DB, three endeca services and two AT
 
 - 16 gigs RAM
 
-## Download Required Database Software
-
-The CRS demo works with either Oracle 11g or Oracle 12c.  Pick one and follow the download and provisioning instructions for the one you picked.
-
-### Oracle 11g (11.2.0.4.0) Enterprise Edition
-
-The first step is to download the required installers.  In order to download Oracle database software you need an Oracle Support account.
-
-- Go to [Oracle Support](http://support.oracle.com)
-- Click the "patches and updates" tab
-- On the left of the page look for "patching quick links". If it's not expanded, expand it.
-- Within that tab, under "Oracle Server and Tools", click "Latest Patchsets"
-- This should bring up a popup window.  Mouse over Product->Oracle Database->Linux x86-64 and click on 11.2.0.4.0
-- At the bottom of that page, click the link "13390677" within the table, which is the patch number
-- Only download parts 1 and 2.
-
-Even though it says it's a patchset, it's actually a full product installer.  
-
-**IMPORTANT:** Put the zip files parts 1 and 2, in the `{ATG-CRS}/software`directory at the top level of this project (it's the directory that has a `readme.txt`file telling you how to use the directory).
-
-### Oracle 12c (12.1.0.2.0) Enterprise Edition
-
-- Go to [Oracle Database Software Downloads](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index-092322.html)
-- Accept the license agreement
-- Under the section "(12.1.0.2.0) - Enterprise Edition" download parts 1 and 2 for Linux x86-64
-
-**IMPORTANT:** Put the zip files parts 1 and 2, in the `{ATG-CRS}/software`directory at the top level of this project (it's the directory that has a `readme.txt`file telling you how to use the directory).
-
-### Oracle SQL Developer
-
-You will also need a way to connect to the database.  I recommend [Oracle SQL Developer](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html).
-
-## Download required ATG server software
-
-### ATG 11.1
-
-These instructions download a previous release of Oracle ATG (11.1). At the time of this writing the latest release is 11.2.  The scripts are coded to assume that the Oracle ATG assets have 11.1 in the name, so you can't just download 11.2 and have it work here.  Sorry.
-
-- Go to [Oracle Edelivery](http://edelivery.oracle.com)
-- Sign in
-- Accept the restrictions
-- On the search page, search for and select the following components:
-  - Oracle ATG Web Commerce
-  - Oracle Endeca Developer
-- Select the platform "Linux x86-64"
-- Click Continue
-- Click "select alternate release" and select 11.1.0.0.0
-- Click Continue
-- Accept the terms and conditions
-- You don't need to download everything.  Download the following files:
-  - "Oracle Commerce Platform"
-  - "Oracle Commerce Reference Store"
-  - "Oracle Commerce MDEX Engine"
-  - "Oracle Commerce Content Acquisition System"
-  - "Oracle Commerce Experience Manager Tools and Frameworks"
-  - "Oracle Commerce Guided Search Platform Services"
-
-**NOTE**  The Experience Manager Tools and Frameworks zipfile (V46389-01.zip) expands to a `cd` directory containing an installer.  It's not strictly required to unzip this file.  If you don't unzip V46389-01.zip the provisioner will do it for you.
-
-### JDK 1.7
-
-- Go to the [Oracle JDK 7 Downloads Page](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
-- Download "jdk-7u72-linux-x64.rpm"
-
-### JBoss EAP 6.1
-
-- Go to the [JBoss product downloads page](http://www.jboss.org/products/eap/download/)
-- Click "View older downloads"
-- Click on the zip downloader for 6.1.0.GA
-
-### OJDBC Driver
-
-- Go to the [Oracle 12c driver downloads page](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html)
-- Download ojdbc7.jar
-
-All oracle drivers are backwards compatible with the officially supported database versions at the time of the driver's release.  You can use ojdbc7 to connect to either 12c or 11g databases.
-
-**IMPORTANT:** Move everything you downloaded to the `{ATG-CRS}/software`directory at the top level of this project.
-
-## Software Check
-
-Before going any further, make sure your software directory looks like one of the following:
-
-If you seclected Oracle 11g:
-
-```
-software/
-├── OCPlatform11.1.bin
-├── OCReferenceStore11.1.bin
-├── OCcas11.1.0-Linux64.sh
-├── OCmdex6.5.1-Linux64_829811.sh
-├── OCplatformservices11.1.0-Linux64.bin
-├── V46389-01.zip
-├── jboss-eap-6.1.0.zip
-├── jdk-7u72-linux-x64.rpm
-├── ojdbc7.jar
-├── p13390677_112040_Linux-x86-64_1of7.zip
-├── p13390677_112040_Linux-x86-64_2of7.zip
-└── readme.txt
-```
-
-if you selected Oracle 12c:
-
-```
-software/
-├── OCPlatform11.1.bin
-├── OCReferenceStore11.1.bin
-├── OCcas11.1.0-Linux64.sh
-├── OCmdex6.5.1-Linux64_829811.sh
-├── OCplatformservices11.1.0-Linux64.bin
-├── V46389-01.zip
-├── jboss-eap-6.1.0.zip
-├── jdk-7u72-linux-x64.rpm
-├── linuxamd64_12102_database_1of2.zip
-├── linuxamd64_12102_database_2of2.zip
-├── ojdbc7.jar
-└── readme.txt
-```
-
 ## Install Required Virtual Machine Software
 
-Install the latest version of [Vagrant](http://www.vagrantup.com/downloads.html). Install the **latest 4.x** release of [VirtualBox](https://www.virtualbox.org/wiki/Downloads). I've had issues installing the database using Virtualbox 5.x.  Also get the [vagrant-vbguest plugin](https://github.com/dotless-de/vagrant-vbguest).  You install it by typing from the command line:
+Install the latest version of [Vagrant](http://www.vagrantup.com/downloads.html). Install the **latest 5.x** release of [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Also get the [vagrant-vbguest plugin](https://github.com/dotless-de/vagrant-vbguest).  You install it by typing from the command line:
+
 
 `vagrant plugin install vagrant-vbguest`
 
 ## Create the database vm
 
-This project comes with two databases vm definitions.  Pick either Oracle 11g or 12c.  They both run on the same private IP address, so ATG will connect to either one the same way.
+This project comes with two databases vm definition.
 
-For 11g, type
 
-`vagrant up db11g`
-
-For 12c type
+For Database VM type
 
 `vagrant up db12c`
 
 This will set in motion an amazing series of events, *and can take a long time*, depending on your RAM, processor speed, and internet connection speed.  The scripts will:
 
 - download an empty centos machine
-- switch it to Oracle Linux (an officially supported platform for Oracle 11g and ATG 11.1)
+- switch it to Oracle Linux (an officially supported platform for Oracle 12g and ATG 11.2)
 - install all prerequisites for the oracle database
 - install and configure the oracle db software
 - create an empty db name `orcl`
-- import the CRS tables and data
+- import the CRS / CSA tables and data
 
 To get a shell on the db vm, type
 
-`vagrant ssh db11g|db12c`
+`vagrant ssh db12c`
 
 You'll be logged in as the user "vagrant".  This user has sudo privileges (meaning you can run `somecommand`as root by typing `sudo somecommand`). To su to root (get a root shell), type `su -`.  The root password is "vagrant".  If you want to su to the oracle user, the easiest thing to do is to su to root and then type `su - oracle`.  The "oracle" user is the user that's running oracle and owns all the oracle directories.  The project directory will be mounted at `/vagrant`.  You can copy files back and forth between your host machine and the VM using that directory.
 
@@ -231,7 +109,7 @@ Key Information:
 
 - The ATGProduction server's primary HTTP port is 8080.  You access its dynamo admin at: http://192.168.70.5:8080/dyn/admin
 - The ATGPublishing server's primary HTTP port is 8180.  You access its dynamo admin at: http://192.168.70.5:8180/dyn/admin.  It's started with the JBoss option `-Djboss.socket.binding.port-offset=100`so every port is 100 more than the corresponding ATGProduction port.
-- The ATG admin username and password is: admin/Admin123.  This applies to both ATGPublishing and ATGProduction.  Use this to log into Dynamo Admin and the BCC
+- The ATG admin username and password is: admin/Admin123.  It will may ask you to change that on first login. If it does then change that to Admin1234. This applies to both ATGPublishing and ATGProduction.  Use this to log into Dynamo Admin and the BCC
 - The various endeca components are installed as the following services. From within the atg vm, you can use the scripts `/vagrant/scripts/atg/start_endeca_services.sh`and `/vagrant/scripts/atg/stop_endeca_services.sh`to start|stop all the endeca services at once:
   - endecaplatform
   - endecaworkbench
@@ -239,7 +117,7 @@ Key Information:
 
 ## Run initial full deployment
 
-At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](http://docs.oracle.com/cd/E52191_01/CRS.11-1/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
+At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
 
 - Deploy the crs data
 - Check the Endeca baseline index status
@@ -247,11 +125,11 @@ At this point, you can pick up the ATG CRS documentation from the [Configuring a
 
 ### Deploy the crs data
 
-Do this from within the BCC by following the [docs](http://docs.oracle.com/cd/E52191_01/CRS.11-1/ATGCRSInstall/html/s0214configuringthedeploymenttopology01.html)
+Do this from within the BCC by following the [docs](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0214configuringthedeploymenttopology01.html)
 
 ### Check the baseline index status
 
-Do this from within the Dynamo Admin by following the [docs](http://docs.oracle.com/cd/E52191_01/CRS.11-1/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
+Do this from within the Dynamo Admin by following the [docs](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
 
 ### Promote the endeca content
 
