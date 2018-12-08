@@ -33,6 +33,119 @@ This product stack is pretty heavy.  It's a DB, three endeca services and two AT
 
 - 16 gigs RAM
 
+## Download Required Database Software
+
+The CRS demo works with Oracle 12c.  
+
+### Oracle 12c (12.1.0.2.0) Enterprise Edition
+
+- Go to [Oracle Database Software Downloads](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index-092322.html)
+- Accept the license agreement
+- Under the section "(12.1.0.2.0) - Enterprise Edition" download parts 1 and 2 for Linux x86-64
+
+**IMPORTANT:** Put the zip files parts 1 and 2, in the `{ATG-CRS}/software`directory at the top level of this project (it's the directory that has a `readme.txt`file telling you how to use the directory).
+
+### Oracle SQL Developer
+
+You will also need a way to connect to the database.  I recommend [Oracle SQL Developer](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html).
+
+## Download required ATG server software
+
+### ATG 11.2
+
+These instructions download a previous release of Oracle ATG (11.2). At the time of this writing the latest release is 11.3.1  The scripts are coded to assume that the Oracle ATG assets have 11.2 in the name, so you can't just download 11.2 and have it work here.  Sorry.
+
+- Go to [Oracle Edelivery](http://edelivery.oracle.com)
+- Sign in
+- Accept the restrictions
+- On the search page, search for and select the following components:
+  - Oracle ATG Web Commerce
+  - Oracle Endeca Developer
+- Select the platform "Linux x86-64"
+- Click Continue
+- Click "select alternate release" and select 11.2.0.0.0
+- Click Continue
+- Accept the terms and conditions
+- You don't need to download everything.  Download the following files:
+  - "Oracle Commerce Platform"
+  - "Oracle Commerce Reference Store"
+  - "Oracle Commerce MDEX Engine"
+  - "Oracle Commerce Content Acquisition System"
+  - "Oracle Commerce Experience Manager Tools and Frameworks"
+  - "Oracle Commerce Guided Search Platform Services"
+
+**NOTE**  The Experience Manager Tools and Frameworks zipfile expands to a `cd` directory containing an installer.  It's not strictly required to unzip this file.  If you don't unzip the provisioner will do it for you.
+
+## Download required ATG server software
+
+### ATG 11.1
+
+These instructions download a previous release of Oracle ATG (11.1). At the time of this writing the latest release is 11.2.  The scripts are coded to assume that the Oracle ATG assets have 11.1 in the name, so you can't just download 11.2 and have it work here.  Sorry.
+
+- Go to [Oracle Edelivery](http://edelivery.oracle.com)
+- Sign in
+- Accept the restrictions
+- On the search page, search for and select the following components:
+  - Oracle ATG Web Commerce
+  - Oracle Endeca Developer
+- Select the platform "Linux x86-64"
+- Click Continue
+- Click "select alternate release" and select 11.1.0.0.0
+- Click Continue
+- Accept the terms and conditions
+- You don't need to download everything.  Download the following files:
+  - "Oracle Commerce Platform"
+  - "Oracle Commerce Reference Store"
+  - "Oracle Commerce MDEX Engine"
+  - "Oracle Commerce Content Acquisition System"
+  - "Oracle Commerce Experience Manager Tools and Frameworks"
+  - "Oracle Commerce Guided Search Platform Services"
+
+**NOTE**  The Experience Manager Tools and Frameworks zipfile (V78229-01.zip) expands to a `cd` directory containing an installer.  It's not strictly required to unzip this file.  If you don't unzip V78229-01.zip the provisioner will do it for you.
+
+### JDK 1.7
+
+- Go to the [Oracle JDK 7 Downloads Page](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+- Download "jdk-7u72-linux-x64.rpm"
+
+### JBoss EAP 6.1
+
+- Go to the [JBoss product downloads page](http://www.jboss.org/products/eap/download/)
+- Click "View older downloads"
+- Click on the zip downloader for 6.1.0.GA
+
+### OJDBC Driver
+
+- Go to the [Oracle 12c driver downloads page](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html)
+- Download ojdbc7.jar
+
+All oracle drivers are backwards compatible with the officially supported database versions at the time of the driver's release.  You can use ojdbc7 to connect to either 12c or 11g databases.
+
+**IMPORTANT:** Move everything you downloaded to the `{ATG-CRS}/software`directory at the top level of this project.
+
+## Software Check
+
+Before going any further, make sure your software directory looks like one of the following:
+
+```
+software/
+├── OCPlatform11_2.bin
+├── OCcas11.2.0-Linux64.bin
+├── V78229-01.zip
+├── linuxamd64_12102_database_1of2.zip
+├── linuxamd64_12102_database_2of2.zip
+├── OCReferenceStore11.2_222RCN.bin
+├── jboss-eap-6.1.0.zip
+├── jdk-7u72-linux-x64.rpm
+├── OCmdex6.5.2-Linux64_962107.bin
+├── OCStoreAccelerator11_2.bin
+├── ojdbc7.jar
+├── OCplatformservices11.2.0-Linux64.bin
+└── readme.txt
+```
+
+
+
 ## Install Required Virtual Machine Software
 
 Install the latest version of [Vagrant](http://www.vagrantup.com/downloads.html). Install the **latest 5.x** release of [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Also get the [vagrant-vbguest plugin](https://github.com/dotless-de/vagrant-vbguest).  You install it by typing from the command line:
