@@ -17,11 +17,11 @@ case "$1" in
 			exit
 		fi
 
-        su $ENDECA_USER -c "/usr/local/endeca/PlatformServices/11.2.0/tools/server/bin/startup.sh >> /home/vagrant/scripts/startup_shutdown.log 2>&1"
+        su $ENDECA_USER -c "/usr/local/endeca/PlatformServices/11.3.1.5.0/tools/server/bin/startup.sh >> /home/vagrant/scripts/startup_shutdown.log 2>&1"
 		touch /var/lock/subsys/endecaplatform
         ;;
     'stop')
-        su $ENDECA_USER -c "/usr/local/endeca/PlatformServices/11.2.0/tools/server/bin/shutdown.sh >> /home/vagrant/scripts/startup_shutdown.log 2>&1"
+        su $ENDECA_USER -c "/usr/local/endeca/PlatformServices/11.3.1.5.0/tools/server/bin/shutdown.sh >> /home/vagrant/scripts/startup_shutdown.log 2>&1"
         rm -f /var/lock/subsys/endecaplatform
         ;;
 esac

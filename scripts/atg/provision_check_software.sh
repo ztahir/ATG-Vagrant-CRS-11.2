@@ -4,15 +4,15 @@
 echo "Checking for the presence of required third-party software installers ..."
 
 declare -a files=(
-"jboss-eap-6.1.0.zip"
-"jdk-7u72-linux-x64.rpm"
-"OCPlatform11_2.bin"
+"jboss-eap-7.0.0.zip"
+"jdk-8u171-linux-x64.rpm"
+"OCPlatform11_3_1.bin"
 "ojdbc7.jar"
-"OCcas11.2.0-Linux64.bin"
-"OCmdex6.5.2-Linux64_962107.bin"
-"OCplatformservices11.2.0-Linux64.bin"
-"V78229-01.zip"
-"OCReferenceStore11.2_222RCN.bin"
+"OCcas11_3_1_5-Linux64.bin"
+"OCmdex11.3.1.5-Linux64_1326782.bin"
+"OCplatformservices11.3.1.5.0-Linux64_1554774RCN.bin"
+"V980671-01.zip"
+"OCReferenceStore11_3_1.bin"
 )
 
 for file in "${files[@]}"

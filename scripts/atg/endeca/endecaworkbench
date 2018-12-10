@@ -18,7 +18,7 @@
 #
 #      ENDECA_TOOLS_ROOT=/opt/endeca/ToolsAndFrameworks/VERSION
 #
-ENDECA_TOOLS_ROOT=/usr/local/endeca/ToolsAndFrameworks/11.2.0
+ENDECA_TOOLS_ROOT=/usr/local/endeca/ToolsAndFrameworks/11.3.1.5.0
 #
 # 2) Edit the ENDECA_USER (below) to match the system user account that you
 #    want Workbench to run under. For example:

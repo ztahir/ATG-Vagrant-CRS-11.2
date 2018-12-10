@@ -7,8 +7,8 @@ CRS
 15000
 15002
 15010
-/usr/local/endeca/CAS/11.2.0
-11.2.0
+/usr/local/endeca/CAS/11.3.1.5.0
+11.3.1.5.0
 localhost
 8500
 en
@@ -20,6 +20,6 @@ localhost
 crs
 localhost
 8180
-/usr/local/endeca/ToolsAndFrameworks/11.2.0/deployment_template/lib/../../server/workspace/credential_store/jps-config.xml
+/usr/local/endeca/ToolsAndFrameworks/11.3.1.5.0/deployment_template/lib/../../server/workspace/credential_store/jps-config.xml
 /usr/local/endeca/Apps/CRS/data/workbench/application_export_archive
 

@@ -15,7 +15,7 @@ Throughout this document, the top-level directory that you checked out from git 
 - Oracle Linux Server release 6.5 (Operating System) - [All Licenses](https://oss.oracle.com/linux/legal/pkg-list.html)
 - Oracle Database 12c
   - Oracle Database 12.1.0.2.0 Enterprise Edition - [license](http://docs.oracle.com/database/121/DBLIC/toc.htm)
-- Oracle ATG Web Commerce 11.2 - 
+- Oracle ATG Web Commerce 11.3ß - 
 - JDK 1.7 - [Oracle BCL license](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
 - ojdbc7.jar - driver [OTN license](http://www.oracle.com/technetwork/licenses/distribution-license-152002.html)
 - Jboss EAP 6.1 - [LGPL license](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
@@ -53,7 +53,7 @@ You will also need a way to connect to the database.  I recommend [Oracle SQL De
 
 ### ATG 11.3
 
-These instructions download a previous release of Oracle ATG (11.2). At the time of this writing the latest release is 11.3.  The scripts are coded to assume that the Oracle ATG assets have 11.2 in the name, so you can't just download 11.3 and have it work here.  Sorry.
+These instructions download a release of Oracle ATG (11.3.1). At the time of this writing the latest release is 11.3.1  The scripts are coded to assume that the Oracle ATG assets have 11.3.1 in the name
 
 - Go to [Oracle Edelivery](http://edelivery.oracle.com)
 - Sign in
@@ -63,7 +63,7 @@ These instructions download a previous release of Oracle ATG (11.2). At the time
   - Oracle Endeca Developer
 - Select the platform "Linux x86-64"
 - Click Continue
-- Click "select alternate release" and select 11.2.0.0.0
+- Click "select alternate release" and select 11.3.1
 - Click Continue
 - Accept the terms and conditions
 - You don't need to download everything.  Download the following files:
@@ -102,18 +102,18 @@ Before going any further, make sure your software directory looks like one of th
 
 ```
 software/
-├── OCPlatform11_2.bin
-├── OCcas11.2.0-Linux64.bin
+├── OCPlatform11_3_1.bin
+├── OCcas11_3_1_5-Linux64.bin 
 ├── V78229-01.zip
 ├── linuxamd64_12102_database_1of2.zip
 ├── linuxamd64_12102_database_2of2.zip
-├── OCReferenceStore11.2_222RCN.bin
-├── jboss-eap-6.1.0.zip
-├── jdk-7u72-linux-x64.rpm
+├── OCReferenceStore11_3_1.bin
+├── jboss-eap-7.0.0.zip
+├── jdk-8u171-linux-x64.rpm
 ├── OCmdex6.5.2-Linux64_962107.bin
 ├── OCStoreAccelerator11_2.bin
 ├── ojdbc7.jar
-├── OCplatformservices11.2.0-Linux64.bin
+├── OCplatformservices11.3.1.5.0-Linux64_1554774RCN.bin
 └── readme.txt
 ```
 
@@ -138,7 +138,7 @@ For Database VM type
 This will set in motion an amazing series of events, *and can take a long time*, depending on your RAM, processor speed, and internet connection speed.  The scripts will:
 
 - download an empty centos machine
-- switch it to Oracle Linux (an officially supported platform for Oracle 12g and ATG 11.2)
+- switch it to Oracle Linux (an officially supported platform for Oracle 12g and ATG 11.3.1)
 - install all prerequisites for the oracle database
 - install and configure the oracle db software
 - create an empty db name `orcl`
