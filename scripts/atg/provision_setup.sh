@@ -40,6 +40,7 @@ if  ! grep -qe "^export ENDECA_TOOLS_CONF=" "/home/vagrant/.bash_profile"; then
 	 && echo "export ENDECA_TOOLS_ROOT=/usr/local/endeca/ToolsAndFrameworks/11.3.1.5.0" >> /home/vagrant/.bash_profile \
 	 && echo "export ENDECA_TOOLS_CONF=/usr/local/endeca/ToolsAndFrameworks/11.3.1.5.0/server/workspace" >> /home/vagrant/.bash_profile \
 	 && echo "export PATH=/usr/java/jdk1.8.0_171-amd64/bin:$PATH" >> /home/vagrant/.bash_profile \
+     && echo "export PATH=/vagrant/scripts/atg:$PATH" >> /home/vagrant/.bash_profile \
      && echo "LANG=en_US.utf-8" >> /etc/environment \
 	 && echo "LC_ALL=en_US.utf-8" >> /etc/environment
 
