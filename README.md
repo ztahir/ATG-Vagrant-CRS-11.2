@@ -4,7 +4,7 @@
 
 This document describes a quick and easy way to install and play with ATG CRS.  By following this guide, you'll be able to focus on learning about ATG CRS, without debugging common gotchas.
 
-If you get lost, you can consult the [ATG CRS Installation and Configuration Guide](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/ATGCRSInstall.pdf) for help.
+If you get lost, you can consult the [ATG CRS Installation and Configuration Guide](https://docs.oracle.com/cd/E94707_01//CRS.11-3-1/ATGCRSInstall/ATGCRSInstall.pdf')) for help.
 
 ### Conventions
 
@@ -212,11 +212,11 @@ At this point, you can pick up the ATG CRS documentation from the [Configuring a
 
 ### Deploy the crs data
 
-Do this from within the BCC by following the [docs](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0214configuringthedeploymenttopology01.html)
+Do this from within the BCC by following the [docs](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0214configuringthedeploymenttopology01.html)
 
 ### Check the baseline index status
 
-Do this from within the Dynamo Admin by following the [docs](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
+Do this from within the Dynamo Admin by following the [docs](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
 
 ### Promote the endeca content
 
