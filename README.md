@@ -203,7 +203,7 @@ Key Information:
 
 ## Run initial full deployment
 
-At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](https://docs.oracle.com/cd/E55783_02/CRS.11-2/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
+At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
 
 - Deploy the crs data
 - Check the Endeca baseline index status

@@ -65,6 +65,8 @@ end
 
    #port forwarding
    atg_config.vm.network "forwarded_port", guest: 8006, host: 8006
+   atg_config.vm.network "forwarded_port", guest: 8080, host: 8080
+   atg_config.vm.network "forwarded_port", guest: 8180, host: 8180
 
     # provision
     atg_config.vm.provision "shell" do |s|
