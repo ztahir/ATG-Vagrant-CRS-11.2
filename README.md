@@ -12,13 +12,13 @@ Throughout this document, the top-level directory that you checked out from git 
 
 ### Product versions used in this guide:
 
-- Oracle Linux Server release 6.5 (Operating System) - [All Licenses](https://oss.oracle.com/linux/legal/pkg-list.html)
+- Oracle Linux Server release 7.x (Operating System) - [All Licenses](https://oss.oracle.com/linux/legal/pkg-list.html)
 - Oracle Database 12c
   - Oracle Database 12.1.0.2.0 Enterprise Edition - [license](http://docs.oracle.com/database/121/DBLIC/toc.htm)
 - Oracle ATG Web Commerce 11.3ß - 
-- JDK 1.7 - [Oracle BCL license](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
+- JDK 1.8 - [Oracle BCL license](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
 - ojdbc7.jar - driver [OTN license](http://www.oracle.com/technetwork/licenses/distribution-license-152002.html)
-- Jboss EAP 6.1 - [LGPL license](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
+- Jboss EAP 7.0 - [LGPL license](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
 
 ### Other software dependencies
 
@@ -76,16 +76,16 @@ These instructions download a release of Oracle ATG (11.3.1). At the time of thi
 
 **NOTE**  The Experience Manager Tools and Frameworks zipfile (V78229-01.zip) expands to a `cd` directory containing an installer.  It's not strictly required to unzip this file.  If you don't unzip V78229-01.zip the provisioner will do it for you.
 
-### JDK 1.7
+### JDK 1.8
 
-- Go to the [Oracle JDK 7 Downloads Page](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
-- Download "jdk-7u72-linux-x64.rpm"
+- Go to the [Oracle JDK 8 Downloads Page](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Download "jdk-8u171-linux-x64.rpm"
 
-### JBoss EAP 6.1
+### JBoss EAP 7.0
 
 - Go to the [JBoss product downloads page](http://www.jboss.org/products/eap/download/)
 - Click "View older downloads"
-- Click on the zip downloader for 6.1.0.GA
+- Click on the zip downloader for 7.0.0.GA
 
 ### OJDBC Driver
 
@@ -110,8 +110,7 @@ software/
 ├── OCReferenceStore11_3_1.bin
 ├── jboss-eap-7.0.0.zip
 ├── jdk-8u171-linux-x64.rpm
-├── OCmdex6.5.2-Linux64_962107.bin
-├── OCStoreAccelerator11_2.bin
+├── OCmdex11.3.1.5-Linux64_1326782.bin
 ├── ojdbc7.jar
 ├── OCplatformservices11.3.1.5.0-Linux64_1554774RCN.bin
 └── readme.txt
@@ -165,7 +164,7 @@ Key Information:
 
 `vagrant up atg`
 
-When it's done you'll have a vm created that is all ready to install and run ATG CRS.  It will have installed jdk7 at /usr/java/jdk1.7.0_72 and jboss at /home/vagrant/jboss/.  You'll also have the required environment variables set in the .bash_profile of the "vagrant" user.
+When it's done you'll have a vm created that is all ready to install and run ATG CRS.  It will have installed jdk8 at /usr/java/jdk1.8.0_171-amd64 and jboss at /home/vagrant/jboss/.  You'll also have the required environment variables set in the .bash_profile of the "vagrant" user.
 
 To get a shell on the atg vm, type
 
@@ -174,7 +173,7 @@ To get a shell on the atg vm, type
 Key Information:
 
 - The atg vm has the private IP 192.168.70.5.  This is defined at the top of the Vagrantfile.
-- java is installed in `/usr/java/jdk1.7.0_72`
+- java is installed in `/usr/java/jdk1.8.0_171-amd64`
 - jboss is installed at `/home/vagrant/jboss`
 - Your project directory is mounted at `/vagrant`.  You'll find the installers you downloaded at `/vagrant/software`from within the atg vm
 - All the endeca software is installed under `/usr/local/endeca`and your CRS endeca project is installed under `/usr/local/endeca/Apps`
@@ -202,6 +201,8 @@ Key Information:
   - endecacas
 
 ## Run initial full deployment
+
+The new dump already take care of this step. You can jump to "Promote the endeca content". 
 
 At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
 
