@@ -57,7 +57,7 @@ end
 
     # change memory size
     atg_config.vm.provider "virtualbox" do |v|
-      v.memory = 6144
+      v.memory = 8192
     end
 
     # static IP so we can configure machines to talk to each other
@@ -67,6 +67,9 @@ end
    atg_config.vm.network "forwarded_port", guest: 8006, host: 8006
    atg_config.vm.network "forwarded_port", guest: 8080, host: 8080
    atg_config.vm.network "forwarded_port", guest: 8180, host: 8180
+   atg_config.vm.network "forwarded_port", guest: 15000, host: 15000
+
+   
 
     # provision
     atg_config.vm.provision "shell" do |s|
