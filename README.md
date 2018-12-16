@@ -202,18 +202,29 @@ Key Information:
 
 ## Run initial full deployment
 
-The new dump already take care of this step. You can jump to "Promote the endeca content". 
-
 At this point, you can pick up the ATG CRS documentation from the [Configuring and Running a Full Deployment](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0214configuringandrunningafulldeploy01.html) section.  Your publishing server has all the CRS data, but nothing has been deployed to production.  You need to:
 
 - Deploy the crs data
+- Set the CredentialStoreManager
 - Check the Endeca baseline index status
 - Promote the CRS content from the command line
 
 ### Deploy the crs data
+The new dump already take care of this step. You can jump to next step. 
 
 Do this from within the BCC by following the [docs](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0214configuringthedeploymenttopology01.html)
 
+### Set the CredentialStoreManager
+On the production instance Go to Component http://192.168.70.5:8080/dyn/admin/nucleus/atg/dynamo/security/opss/csf/CredentialStoreManager/
+
+Action: CreateLoginCredentials then click select
+Enter the following info 
+Map Name: endecaToolsAndFrameworks
+Credential Key Name:ifcr
+Enter Username: admin
+Enter Password: Admin123
+
+Here username and password is the same as we have have given earlier in scripts while installing Endeca. 
 ### Check the baseline index status
 
 Do this from within the Dynamo Admin by following the [docs](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
