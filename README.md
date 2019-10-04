@@ -228,6 +228,7 @@ Here username and password is the same as we have have given earlier in scripts 
 ### Check the baseline index status
 
 Do this from within the Dynamo Admin by following the [docs](https://docs.oracle.com/cd/E94707_01/CRS.11-3-1/ATGCRSInstall/html/s0215checkingthebaselineindexstatus01.html)
+http://192.168.70.5:8180/dyn/admin/nucleus//atg/commerce/endeca/index/ProductCatalogSimpleIndexingAdmin/
 
 ### Promote the endeca content
 
